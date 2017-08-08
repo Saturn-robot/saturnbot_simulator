@@ -18,12 +18,17 @@
 
   <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -z 0.1 -model robot_model" respawn="false" output="screen" />
 
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find chapter8_tutorials)/launch/mapping.rviz"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find saturn_simulator)/launch/mapping.rviz"/>
   <node name="slam_gmapping" pkg="gmapping" type="slam_gmapping">
-    <remap from="scan" to="/robot/laser/scan"/>
     <param name="base_link" value="base_footprint"/>
   </node>
-	
 
+  <!-- Fake laser -->
+  <!-- Run the depthimage_to_laserscan node -->
+  <node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan" output="screen">
+      <param name="output_frame_id" value="camera_depth_frame"/>
+      <remap from="image" to="/camera/depth/image_raw"/>
+      <remap from="camera_info" to="camera/depth/camera_info"/>
+      <remap from="scan" to="/scan"/>
+  </node>
 </launch>
-

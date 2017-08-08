@@ -85,7 +85,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.01
       Style: Flat Squares
-      Topic: /robot/laser/scan
+      Topic: /scan
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
@@ -124,27 +124,17 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        hokuyo_link:
+        wheel_left:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        wheel_1:
+        wheel_right:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        wheel_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wheel_3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wheel_4:
+        caster_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -166,19 +156,15 @@ Visualization Manager:
           Value: true
         camera_link:
           Value: true
-        hokuyo_link:
-          Value: true
         map:
           Value: true
         odom:
           Value: true
-        wheel_1:
+        wheel_left:
           Value: true
-        wheel_2:
+        wheel_right:
           Value: true
-        wheel_3:
-          Value: true
-        wheel_4:
+        caster_wheel:
           Value: true
       Marker Scale: 1
       Name: TF

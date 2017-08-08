@@ -49,7 +49,6 @@
       <imageTopicName>rgb/image_raw</imageTopicName>
       <depthImageTopicName>depth/image_raw</depthImageTopicName>
       <pointCloudTopicName>depth/points</pointCloudTopicName>
-      <!--pointCloudCutoffMax>0.5</pointCloudCutoffMax-->
       <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
       <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
       <frameName>camera_depth_optical_frame</frameName>

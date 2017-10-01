@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
   <!-- gazebo default world file -->
-  <arg name="world_file" default="$(find saturnbot_simulator)/worlds/simple_world.world" />
+  <arg name="world_file" default="$(find saturnbot_simulator)/worlds/playground.world" />
   <param name="/use_sim_time" value="true" />
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -10,19 +10,7 @@
   <arg name="model" default="$(find saturnbot_description)/robot/saturnbot_astra.urdf.xacro" />
   <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
 
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
-  <!-- start robot state publisher -->
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" >
-    <param name="publish_frequency" type="double" value="50.0" />
-  </node>
-
-
   <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -z 0.1 -model robot_model" respawn="false" output="screen" />
-
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find saturnbot_simulator)/launch/mapping.rviz"/>
-  <node name="slam_gmapping" pkg="gmapping" type="slam_gmapping">
-    <param name="base_link" value="base_footprint"/>
-  </node>
 
   <!-- Fake laser -->
   <!-- Run the depthimage_to_laserscan node -->
